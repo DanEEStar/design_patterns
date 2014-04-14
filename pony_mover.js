@@ -1,39 +1,4 @@
-function Command($element, direction) {
-    this.$element = $element;
-    this.direction = direction;
-    this.oppositeDirection = this.oppositeDirections[direction];
-};
 
-Command.prototype.oppositeDirections = {
-    'up': 'down',
-    'down': 'up',
-    'left': 'right',
-    'right': 'left'
-};
-
-Command.prototype.down = function() {
-    this.$element.animate({'top': '+=30px'});
-};
-
-Command.prototype.up = function() {
-    this.$element.animate({'top': '-=30px'});
-};
-
-Command.prototype.left = function() {
-    this.$element.animate({'left': '-=30px'});
-};
-
-Command.prototype.right = function() {
-    this.$element.animate({'left': '+=30px'});
-};
-
-Command.prototype.run = function() {
-    this[this.direction]();
-};
-
-Command.prototype.undo = function() {
-    this[this.oppositeDirection]();
-};
 
 function PonyMover($pony, $log) {
   this.$pony = $pony;
